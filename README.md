@@ -6,3 +6,4 @@ This TypeScript SDK was designed exclusively to connect with the Kanvas Niche Ec
 
 - [Introduction](./introduction.md)
 - [Authentication](./auth.md)
+- [Users](./users.md)
