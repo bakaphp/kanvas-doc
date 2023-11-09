@@ -1,82 +1,123 @@
-# Kanvas Core JS
+## Authentication
 
-## Auth
-This is a list of method available in the Kanvas Core JS SDK for Auth module.
+This is a list of method available in the Kanvas Core JS SDK for the Authentication module.
+
 ## Methods
 
-- [Sign Up](#sign-up)
-- [Sign In](#sign-in)
-- [Sign Out](#sign-out)
+- [Register](#register)
+- [Log In](#log-in)
+- [Log Out](#log-out)
 - [Forgot Password](#forgot-password)
 - [Reset Password](#reset-password)
 - [Change Password](#change-password)
 
-### Sign Up
+## Register
 
-The method `register` allows you to create a new user in the Kanvas ecosystem. this return type is [CreatedUser](/types#CreatedUser)
+The method `register` allows you to create a new user within the Kanvas Ecosystem. It recieves a [UserInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L5) or [CreateUserParams](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L73) interface. It returns a [CreatedUser](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L82) interface.
 
 ```js
-    let createdUser = kanvas.users.register({
-        email: string;
-        firstname: string;
-        lastname: string;
-        displayname: string;
-        password: string;
-        password_confirmation: string;
-    });
+Kanvas.users.register(
+  userData: UserInterface | CreateUserParams
+): CreatedUser
 ```
 
-### Sign In
-
-The method `login` allows you to sign in a user in the Kanvas ecosystem. this return type is [Authentication](/types#AuthenticationInterface)
-
+**Example:**
 ```js
-    let signIn = kanvas.auth.login(
-        email: string,
-        password: string
-    );
+const createdUser = Kanvas.users.register({
+  email: 'john.doe@domain.com',
+  firstname: 'John',
+  lastname: 'Doe',
+  displayname: 'john.doe',
+  password: 'pass1234',
+  password_confirmation: 'pass1234',
+});
 ```
 
-### Sign Out
+## Log In
 
-The method `logout` allows you to sign out a user in the Kanvas ecosystem. this return type is [Authentication](/types#LogoutInterface)
+The method `login` allows you to sign in a user into the Kanvas Ecosystem. It returns a [Authentication](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/auth.ts#L1) interface.
 
 ```js
-let signOut = kanvas.auth.logout();
+Kanvas.auth.login(
+  email: string,
+  password: string
+): AuthenticationInterface
 ```
 
-### Forgot Password
-
-The method `forgotPassword` allows you to send a email to reset the password of a user in the Kanvas ecosystem.
-
+**Example:**
 ```js
-    let forgotPassword = kanvas.user.forgotPassword(
-        email: string
-    );
+const signIn = kanvas.auth.login(
+  'john.doe@domain.com',
+  'pass1234'
+);
 ```
 
-### Reset Password
+## Log Out
 
-The method `resetPassword` allows you to reset the password of a user in the Kanvas ecosystem. This method return [ResetPasswordInterface
-](/types##ResetPasswordInterface) type.
+The method `logout` allows you to sign out a user out of the Kanvas Ecosystem. It returns a [Authentication](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/auth.ts#L11) interface.
 
 ```js
-    let resetPassword = kanvas.auth.resetPassword(
-        hash_key: string,
-        new_password: string,
-        verify_password: string
-    );
+Kanvas.auth.logout(): void
 ```
 
-### Change Password
+**Example:**
+```js
+Kanvas.auth.logout();
+```
 
-The method `changePassword` allows you to change the password of a user in the Kanvas ecosystem. This method return [ChangePasswordInterface
-](/types##ChangePasswordInterface) type.
+## Forgot Password
+
+The method `forgotPassword` sends an email that allows the user to reset the password of their account within the Kanvas Ecosystem.
 
 ```js
-    let changePassword = kanvas.auth.changePassword(
-        current_password: string,
-        new_password: string,
-        new_password_confirmation: string
-    );
+Kanvas.user.forgotPassword(email: string): void
+```
+
+**Example:**
+```js
+Kanvas.user.forgotPassword(
+  'john.doe@domain.com'
+);
+```
+
+## Reset Password
+
+The method `resetPassword` allows you to reset the password of a user in the Kanvas Ecosystem. It recieves a hash, the user's new password and its verification. It returns a [ResetPasswordInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/auth.ts#L19) interface.
+
+```js
+Kanvas.auth.resetPassword(
+  hash_key: string,
+  new_password: string,
+  verify_password: string
+): ResetPasswordInterface
+```
+
+**Example:**
+```js
+const resetPassword = kanvas.auth.resetPassword(
+  '3b84ece51db2d36fb58608a48422601649093811',
+  '1234pass',
+  '1234pass'
+);
+```
+
+## Change Password
+
+The method `changePassword` allows you to change the password of a user in the Kanvas Ecosystem. It returns a [ChangePasswordInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/auth.ts#L23) interface.
+
+```js
+Kanvas.auth.changePassword(
+  current_password: string,
+  new_password: string,
+  new_password_confirmation: string
+): ChangePasswordInterface
+```
+
+**Example:**
+```js
+const changePassword = kanvas.auth.changePassword(
+  'pass1234',
+  '1234pass',
+  '1234pass'
+);
 ```
