@@ -65,7 +65,7 @@ const invitedUser = Kanvas.users.invite({
 
 ## Switch Company
 
-The method `switchCompany` changes the company the user is currently in.
+The method `switchCompany` changes the company the user is currently in by passing the company id the user is moving to.
 
 ```js
 Kanvas.users.switchCompany(id: number): void
