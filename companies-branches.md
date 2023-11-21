@@ -4,7 +4,7 @@
 
 ## Get Companies Branches
 
-The method getCompanyBranches fetch all branches associates to the current company. It returns a [CompanyBranchInterface]() interface array.
+The getCompanyBranches method retrieves all branches associated with the current company. It returns an array of CompanyBranchInterface interfaces.
 
 ```js
 Kanvas.companies.getCompanyBranches(): CompanyBranchInterface[]
@@ -18,7 +18,7 @@ const branches = Kanvas.companies.getCompanyBranches();
 
 ## Get Company Branches Users
 
-The method getCompanyBranchUsers fetch all users associates to the current company branches. It returns a [UserData]() interface array.
+The getCompanyBranchUsers method fetches all users associated with the current company branches. It returns an array of UserData interfaces.
 
 ```js
 Kanvas.companies.getCompanyBranchUsers(): UserData[]
@@ -32,7 +32,7 @@ const users = Kanvas.companies.getCompanyBranchUsers();
 
 ## Create Company Branch
 
-The method createCompanyBranch is used to create a new company branch. It recieves a [CompanyBranchInput]() interface. It returns a [CompanyBranchInterface]() interface.
+The createCompanyBranch method is used to create a new company branch. It receives a CompanyBranchInput interface. It returns a CompanyBranchInterface interface.
 
 ```js
 Kanvas.companies.createCompanyBranch(companyBranchInput: CompanyBranchInput): CompanyBranchInterface
@@ -64,7 +64,7 @@ const newCompanyBranch = Kanvas.companies.createCompanyBranch({
 
 ## Update Company Branch
 
-The method updateCompanyBranch is used to update a company branch. It recieves a [CompanyBranchInput]() interface and id of the company branch. It returns a [CompanyBranchInterface]() interface.
+The updateCompanyBranch method is used to update a company branch. It receives a CompanyBranchInput interface and the id of the company branch. It returns a CompanyBranchInterface interface.
 
 ```js
 Kanvas.companies.updateCompanyBranch(id: string,companyBranchInput: CompanyBranchInput): CompanyBranchInterface
@@ -96,7 +96,8 @@ const updatedCompanyBranch = Kanvas.companies.updateCompanyBranch(1, {
 
 ## Delete Company Branch
 
-The method deleteCompanyBranch is used to delete a company branch. It recieves the id of the company branch. It returns a boolean.
+The deleteCompanyBranch method is used to delete a company branch. It receives the id of the company branch. It returns a boolean.
+
 
 ```js
 Kanvas.companies.deleteCompanyBranch(id: string): boolean
@@ -110,7 +111,7 @@ const deletedCompanyBranch = Kanvas.companies.deleteCompanyBranch(1);
 
 ## Add user to Company Branch
 
-The method addUserToBranch is used to add a user to a company branch. It recieves the id of the user and the id of the company branch. It returns a boolean.
+The addUserToBranch method is used to add a user to a company branch. It receives the id of the user and the id of the company branch. It returns a boolean.
 
 ```js
 Kanvas.companies.addUserToBranch(id: string, user_id: string): boolean
@@ -124,7 +125,7 @@ const addedUserToBranch = Kanvas.companies.addUserToBranch(1, 1);
 
 ## Remove user from Company Branch
 
-The method removeUserFromBranch is used to remove a user from a company branch. It recieves the id of the user and the id of the company branch. It returns a boolean.
+The removeUserFromBranch method is used to remove a user from a company branch. It receives the id of the user and the id of the company branch. It returns a boolean.
 
 ```js
 Kanvas.companies.removeUserFromBranch(id: string, user_id: string): boolean

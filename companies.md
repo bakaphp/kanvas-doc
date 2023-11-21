@@ -15,7 +15,7 @@ This is a list of method available in the Kanvas Core JS SDK for Companies modul
 
 ## Get Companies
 
-The method getCompanies fetch all companies associates to the user. It returns a [CompanyData]() interface.
+The getCompanies method fetches all companies associated with the user. It returns a CompanyData interface.
 
 ```js
 Kanvas.companies.getCompanies(): CompanyData
@@ -29,7 +29,7 @@ const companies = Kanvas.companies.getCompanies();
 
 ## Get Companies User
 
-The method getCompaniesUser fetch all users associates to the current company. It returns a [UserData](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L86) interface array.
+The getCompaniesUser method fetches all users associated with the current company. It returns an array of UserData interfaces.
 
 ```js
 Kanvas.companies.getCompaniesUser(): UserData[]
@@ -43,8 +43,7 @@ const users = Kanvas.companies.getCompaniesUser();
 
 ## Get Company Settings
 
-The method getCompanySettings fetch all settings associates to the current company. It returns a [CompanySettings]()
-interface.
+The getCompanySettings method fetches all settings associated with the current company. It returns a CompanySettings interface.
 
 ```js
 Kanvas.companies.getCompanySettings(): CompanySettings
@@ -58,7 +57,7 @@ const settings = Kanvas.companies.getCompanySettings();
 
 ## Create Company
 
-The method createCompany is used to create a new company. It recieves a [CompanyInput]() interface. It returns a [CompanyInterface]() interface.
+The createCompany method is used to create a new company. It receives a CompanyInput interface. It returns a CompanyInterface interface.
 
 ```js
 Kanvas.companies.createCompany(companyInput: CompanyInput): CompanyInterface
@@ -84,7 +83,7 @@ const newCompany = Kanvas.companies.createCompany({
 
 ## Update Company
 
-The method updateCompany is used to update a company. It recieves a [CompanyInput]() interface and id of the company. It returns a [CompanyInterface]() interface.
+The updateCompany method is used to update a company. It receives a CompanyInput interface and the id of the company. It returns a CompanyInterface interface.
 
 ```js
 Kanvas.companies.updateCompany(id: string,companyInput: CompanyInput): CompanyInterface
@@ -110,7 +109,7 @@ const updatedCompany = Kanvas.companies.updateCompany(1, {
 
 ## Delete Company
 
-The method deleteCompany is used to delete a company. It recieves the id of the company. It returns a boolean.
+The deleteCompany method is used to delete a company. It receives the id of the company. It returns a boolean.
 
 ```js
 Kanvas.companies.deleteCompany(id: string): boolean
@@ -124,7 +123,7 @@ const deletedCompany = Kanvas.companies.deleteCompany(1);
 
 ## Add User To Company
 
-The method addUserToCompany is used to add a user to a company. It recieves the id of the user and the id of the company. It returns a boolean.
+The addUserToCompany method is used to add a user to a company. It receives the id of the user and the id of the company. It returns a boolean.
 
 ```js
 Kanvas.companies.addUserToCompany(id: string, user_id: string): boolean
@@ -138,7 +137,7 @@ const addedUser = Kanvas.companies.addUserToCompany(1, 1);
 
 ## Remove User From Company
 
-The method removeUserFromCompany is used to remove a user from a company. It recieves the id of the user and the id of the company. It returns a boolean.
+The removeUserFromCompany method is used to remove a user from a company. It receives the id of the user and the id of the company. It returns a boolean.
 
 ```js
 Kanvas.companies.removeUserFromCompany(id: string, user_id: string): boolean
