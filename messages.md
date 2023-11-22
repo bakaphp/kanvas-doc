@@ -2,6 +2,7 @@
 
 The Messages class in the Kanvas Core JS SDK provides methods for interacting with messages.
 
+
 ## Create Message
 
 This method allows you to create a new message. It receive a [MessageInputInterface]() interface and returns a [MessageInterface]() interface.
@@ -64,7 +65,7 @@ const messages = Kanvas.messages.getMessages({
 
 ## Interact with Messages
 
-This method allows you to interact with messages. Send likes, share, unlike and report. It receive the parameters ID of the message and [InteractionType]() interface.
+This method allows you to interact with messages, such as sending likes, sharing, unliking, and reporting. It takes the message ID and InteractionType interface as parameters.
 
 ```js
 Kanvas.messages.interactWithMessage(
@@ -84,7 +85,7 @@ const message = Kanvas.messages.interactWithMessage(
 
 ## Attach Topic to Message
 
-This method allows you to attach a topic to a message. It receive the parameters ID of the message and ID of Topic.
+This method allows you to attach a topic to a message. It takes the message ID and topic ID as parameters.
 
 ```js
 Kanvas.messages.attachTopicToMessage(
@@ -104,7 +105,7 @@ Kanvas.messages.attachTopicToMessage(
 
 ## Detach Topic from Message
 
-This method allows you to detach a topic from a message. It receive the parameters ID of the message and ID of Topic.
+This method allows you to detach a topic from a message. It takes the message ID and topic ID as parameters.
 
 ```js
 Kanvas.messages.detachTopicFromMessage(

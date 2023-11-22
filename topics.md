@@ -2,7 +2,7 @@
 
 ## Method Create Topic
 
-This method allows you to create a topic. It receive as parameters [TopicInputInterface]() and return [TopicInterface]().
+This method enables you to create a new topic. It takes TopicInputInterface as parameters and returns TopicInterface.
 
 ```js
 Kanvas.topics.createTopic(
@@ -24,7 +24,7 @@ const topic = Kanvas.topics.createTopic({
 
 ## Update Topic
 
-This method allows you to update a topic. It receive as parameters [TopicInputInterface]() and id string then return [TopicInterface]().
+This method allows you to update an existing topic. It takes the topic's ID as a string and TopicInputInterface as parameters, then returns TopicInterface.
 
 ```js
 Kanvas.topics.updateTopic(
@@ -47,7 +47,7 @@ const topic = Kanvas.topics.updateTopic("topic-id", {
 
 ## Get Topics
 
-This method allows you to get all topics. It receive as parameters [QueryGetTopicsWhereInterface]() and return [TopicInterfacep[]]().
+This method allows you to retrieve all topics. It takes QueryGetTopicsWhereInterface as parameters and returns TopicInterface[].
 
 ```js
 Kanvas.topics.getTopics(
@@ -63,7 +63,7 @@ const topics = Kanvas.topics.getTopics();
 
 ## Follow Topic
 
-This method allows you to follow a topic. It receive as parameters id string.
+This method allows you to follow a specific topic. It takes the topic's ID as a string.
 
 ```js
 kanvas.topics.followTopic(
@@ -79,7 +79,7 @@ Kanvas.topics.followTopic("topic-id");
 
 ## Unfollow Topic
 
-This method allows you to unfollow a topic. It receive as parameters id string.
+This method allows you to unfollow a specific topic. It takes the topic's ID as a string.
 
 ```js
 Kanvas.topics.unFollowTopic(

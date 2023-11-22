@@ -2,7 +2,7 @@
 
 ## Get System Modules
 
-This method allows you to get all system modules. Returns a [SystemModuleInterface]() interface.
+This method enables you to retrieve all system modules and returns a SystemModuleInterface interface.
 
 ```js
 Kanvas.systemModules.getSystemModules(): SystemModuleInterface[]
