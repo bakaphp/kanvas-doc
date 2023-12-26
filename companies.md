@@ -15,7 +15,7 @@ This is a list of method available in the Kanvas Core JS SDK for Companies modul
 
 ## Get Companies
 
-The getCompanies method fetches all companies associated with the user. It returns a CompanyData interface.
+The getCompanies method fetches all companies associated with the user. It returns a [CompanyData interface.](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L3)
 
 ```js
 Kanvas.companies.getCompanies(): CompanyData
@@ -29,7 +29,7 @@ const companies = Kanvas.companies.getCompanies();
 
 ## Get Companies User
 
-The getCompaniesUser method fetches all users associated with the current company. It returns an array of UserData interfaces.
+The getCompaniesUser method fetches all users associated with the current company. It returns an array of [UserData interfaces](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L86).
 
 ```js
 Kanvas.companies.getCompaniesUser(): UserData[]
@@ -43,7 +43,7 @@ const users = Kanvas.companies.getCompaniesUser();
 
 ## Get Company Settings
 
-The getCompanySettings method fetches all settings associated with the current company. It returns a CompanySettings interface.
+The getCompanySettings method fetches all settings associated with the current company. It returns a [CompanySettings interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L56).
 
 ```js
 Kanvas.companies.getCompanySettings(): CompanySettings
@@ -57,7 +57,7 @@ const settings = Kanvas.companies.getCompanySettings();
 
 ## Create Company
 
-The createCompany method is used to create a new company. It receives a CompanyInput interface. It returns a CompanyInterface interface.
+The createCompany method is used to create a new company. It receives a [CompanyInput interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L20C24-L20C24). It returns a [CompanyInterface interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L3).
 
 ```js
 Kanvas.companies.createCompany(companyInput: CompanyInput): CompanyInterface
@@ -83,7 +83,7 @@ const newCompany = Kanvas.companies.createCompany({
 
 ## Update Company
 
-The updateCompany method is used to update a company. It receives a CompanyInput interface and the id of the company. It returns a CompanyInterface interface.
+The updateCompany method is used to update a company. It receives a [CompanyInput interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L20C24-L20C24) and the id of the company. It returns a [CompanyInterface interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L3).
 
 ```js
 Kanvas.companies.updateCompany(id: string,companyInput: CompanyInput): CompanyInterface

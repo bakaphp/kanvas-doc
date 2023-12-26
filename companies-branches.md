@@ -4,7 +4,7 @@
 
 ## Get Companies Branches
 
-The getCompanyBranches method retrieves all branches associated with the current company. It returns an array of CompanyBranchInterface interfaces.
+The getCompanyBranches method retrieves all branches associated with the current company. It returns an array of [CompanyBranchInterface interfaces](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies-branches.ts#L21).
 
 ```js
 Kanvas.companies.getCompanyBranches(): CompanyBranchInterface[]
@@ -18,7 +18,7 @@ const branches = Kanvas.companies.getCompanyBranches();
 
 ## Get Company Branches Users
 
-The getCompanyBranchUsers method fetches all users associated with the current company branches. It returns an array of UserData interfaces.
+The getCompanyBranchUsers method fetches all users associated with the current company branches. It returns an array of [UserData interfaces](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L5).
 
 ```js
 Kanvas.companies.getCompanyBranchUsers(): UserData[]
@@ -32,7 +32,7 @@ const users = Kanvas.companies.getCompanyBranchUsers();
 
 ## Create Company Branch
 
-The createCompanyBranch method is used to create a new company branch. It receives a CompanyBranchInput interface. It returns a CompanyBranchInterface interface.
+The createCompanyBranch method is used to create a new company branch. It receives a [CompanyBranchInput interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies-branches.ts#L7). It returns a [CompanyBranchInterface interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies-branches.ts#L21).
 
 ```js
 Kanvas.companies.createCompanyBranch(companyBranchInput: CompanyBranchInput): CompanyBranchInterface
@@ -64,7 +64,7 @@ const newCompanyBranch = Kanvas.companies.createCompanyBranch({
 
 ## Update Company Branch
 
-The updateCompanyBranch method is used to update a company branch. It receives a CompanyBranchInput interface and the id of the company branch. It returns a CompanyBranchInterface interface.
+The updateCompanyBranch method is used to update a company branch. It receives a [CompanyBranchInput interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies-branches.ts#L7) and the id of the company branch. It returns a [CompanyBranchInterface interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies-branches.ts#L21).
 
 ```js
 Kanvas.companies.updateCompanyBranch(id: string,companyBranchInput: CompanyBranchInput): CompanyBranchInterface
