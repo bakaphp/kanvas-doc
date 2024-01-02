@@ -55,7 +55,7 @@ const newCompanyBranch = Kanvas.companies.createCompanyBranch({
   phone: "0000000000",
   files: [
     {
-      url: "https://mynewcompanybranch.com",
+      url: "https://mynewcompanybranch.com/image.jpg",
       name: "My new company branch",
     },
   ],
