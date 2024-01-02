@@ -87,7 +87,7 @@ const updatedCompanyBranch = Kanvas.companies.updateCompanyBranch(1, {
   phone: "0000000000",
   files: [
     {
-      url: "https://mynewcompanybranch.com",
+      url: "https://mynewcompanybranch.com/image.jpg",
       name: "My new company branch",
     },
   ],
