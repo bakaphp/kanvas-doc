@@ -1,11 +1,17 @@
 ## Messages
+The Messages class within the Kanvas Core JS SDK offers methods designed for interacting with messages.
 
-The Messages class in the Kanvas Core JS SDK provides methods for interacting with messages.
+## Methods
+- [Create Message](#create-message)
+- [Get Messages](#get-messages)
+- [Interact with Messages](#interact-with-messages)
+- [Attach Topic to Message](#attach-topic-to-message)
+- [Detach Topic from Message](#detach-topic-from-message)
 
 
 ## Create Message
 
-This method allows you to create a new message. It receive a [MessageInputInterface]() interface and returns a [MessageInterface]() interface.
+This method enables the creation of a new message. It receives a [MessageInputInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/messages.ts#L19) interface as input and returns a [MessageInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/messages.ts#L2) interface.
 
 ```js
 Kanvas.messages.createMessage(messageInput: MessageInputInterface): MessageInterface
@@ -28,16 +34,16 @@ const newMessage = Kanvas.messages.createMessage(message);
 
 ## Get Messages
 
-This method allows you to get messages from the server. It receive the parameters
+This method facilitates the retrieval of messages from the server. It accepts the following parameters
 
-- where: [MessageWhereConditions]()
-- hasAppModuleMessageWhere: [HasAppModuleMessageWhereConditions](),
-- orderBy: [OrderByMessage[]](),
-- search: [string](),
-- first: [number](),
-- page: [number]()
+- where: [WhereCondition](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/leads.ts#L122)
+- hasAppModuleMessageWhere: [HasAppModuleMessageWhereConditions](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/messages.ts#L42),
+- orderBy: [OrderByMessage[]](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/messages.ts#L48),
+- search: string,
+- first: number,
+- page: number
 
-and returns a [MessageInterface[]]() interface.
+and returns a [MessageInterface[]](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/messages.ts#L2) interface.
 
 ```js
 Kanvas.messages.getMessages(
@@ -65,12 +71,12 @@ const messages = Kanvas.messages.getMessages({
 
 ## Interact with Messages
 
-This method allows you to interact with messages, such as sending likes, sharing, unliking, and reporting. It takes the message ID and InteractionType interface as parameters.
+This method allows you to interact with messages, such as sending likes, sharing, unliking, and reporting. It takes the message ID and [InteractionTypeInput interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/messages.ts#L53) as parameters.
 
 ```js
 Kanvas.messages.interactWithMessage(
     id: string,
-    type: InteractionType
+    type: InteractionTypeInput
 ): MessageInterface
 ```
 
@@ -79,13 +85,13 @@ Kanvas.messages.interactWithMessage(
 ```js
 const message = Kanvas.messages.interactWithMessage(
     id: string,
-    type: InteractionType
+    type: InteractionTypeInput
 );
 ```
 
 ## Attach Topic to Message
 
-This method allows you to attach a topic to a message. It takes the message ID and topic ID as parameters.
+This method enables you to associate a topic with a message. It requires the message ID and topic ID as parameters.
 
 ```js
 Kanvas.messages.attachTopicToMessage(
@@ -105,7 +111,7 @@ Kanvas.messages.attachTopicToMessage(
 
 ## Detach Topic from Message
 
-This method allows you to detach a topic from a message. It takes the message ID and topic ID as parameters.
+This method allows you to detach a topic from a message. It requires the message ID and topic ID as parameters.
 
 ```js
 Kanvas.messages.detachTopicFromMessage(
