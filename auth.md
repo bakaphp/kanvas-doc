@@ -13,7 +13,7 @@ This is a list of method available in the Kanvas Core JS SDK for the Authenticat
 
 ## Register
 
-The method `register` allows you to create a new user within the Kanvas Ecosystem. It recieves a [UserInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L5) or [CreateUserParams](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L73) interface. It returns a [CreatedUser](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L82) interface.
+The method `register` allows you to create a new user within the Kanvas Ecosystem. It receive a [UserInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L5) or [CreateUserParams](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L73) interface. It returns a [CreatedUser](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L82) interface.
 
 ```js
 Kanvas.users.register(
@@ -82,7 +82,7 @@ Kanvas.user.forgotPassword(
 
 ## Reset Password
 
-The method `resetPassword` allows you to reset the password of a user in the Kanvas Ecosystem. It recieves a hash, the user's new password and its verification. It returns a [ResetPasswordInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/auth.ts#L19) interface.
+The method `resetPassword` allows you to reset the password of a user in the Kanvas Ecosystem. It receive a hash, the user's new password and its verification. It returns a [ResetPasswordInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/auth.ts#L19) interface.
 
 ```js
 Kanvas.auth.resetPassword(
