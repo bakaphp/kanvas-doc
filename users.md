@@ -26,7 +26,7 @@ const userData = Kanvas.users.getUserData();
 
 ## Update User
 
-The method `updateUserData` allows you to update a user in the Kanvas ecosystem. It receive the user's ID and a [UpdateUserParams](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L121) interface. It returns a [UserData](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L86) interface.
+The method `updateUserData` allows you to update a user in the Kanvas ecosystem. It recieves the user's ID and a [UpdateUserParams](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L121) interface. It returns a [UserData](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L86) interface.
 
 ```js
 Kanvas.users.updateUserData(
@@ -48,7 +48,7 @@ const updatedUserData = Kanvas.users.updateUserData(1, dataToUpdate);
 
 ## Invite User
 
-The method `invite` is used to invite new users into a company. It receive a [InviteUserParams](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L133) interface. It returns a [InviteUserData](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L141) interface.
+The method `invite` is used to invite new users into a company. It recieves a [InviteUserParams](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L133) interface. It returns a [InviteUserData](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L141) interface.
 
 ```js
 Kanvas.users.invite(inviteInput: InviteUserParams): InviteUserData

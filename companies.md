@@ -57,7 +57,7 @@ const settings = Kanvas.companies.getCompanySettings();
 
 ## Create Company
 
-The createCompany method is used to create a new company. It receives a [CompanyInput interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L20C24-L20C24). It returns a [CompanyInterface interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L3).
+The createCompany method is used to create a new company. It recievess a [CompanyInput interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L20C24-L20C24). It returns a [CompanyInterface interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L3).
 
 ```js
 Kanvas.companies.createCompany(companyInput: CompanyInput): CompanyInterface
@@ -83,7 +83,7 @@ const newCompany = Kanvas.companies.createCompany({
 
 ## Update Company
 
-The updateCompany method is used to update a company. It receives a [CompanyInput interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L20C24-L20C24) and the id of the company. It returns a [CompanyInterface interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L3).
+The updateCompany method is used to update a company. It recievess a [CompanyInput interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L20C24-L20C24) and the id of the company. It returns a [CompanyInterface interface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/companies.ts#L3).
 
 ```js
 Kanvas.companies.updateCompany(id: string,companyInput: CompanyInput): CompanyInterface
@@ -109,7 +109,7 @@ const updatedCompany = Kanvas.companies.updateCompany(1, {
 
 ## Delete Company
 
-The deleteCompany method is used to delete a company. It receives the id of the company. It returns a boolean.
+The deleteCompany method is used to delete a company. It recievess the id of the company. It returns a boolean.
 
 ```js
 Kanvas.companies.deleteCompany(id: string): boolean
@@ -123,7 +123,7 @@ const deletedCompany = Kanvas.companies.deleteCompany(1);
 
 ## Add User To Company
 
-The addUserToCompany method is used to add a user to a company. It receives the id of the user and the id of the company. It returns a boolean.
+The addUserToCompany method is used to add a user to a company. It recievess the id of the user and the id of the company. It returns a boolean.
 
 ```js
 Kanvas.companies.addUserToCompany(id: string, user_id: string): boolean
@@ -137,7 +137,7 @@ const addedUser = Kanvas.companies.addUserToCompany(1, 1);
 
 ## Remove User From Company
 
-The removeUserFromCompany method is used to remove a user from a company. It receives the id of the user and the id of the company. It returns a boolean.
+The removeUserFromCompany method is used to remove a user from a company. It recievess the id of the user and the id of the company. It returns a boolean.
 
 ```js
 Kanvas.companies.removeUserFromCompany(id: string, user_id: string): boolean

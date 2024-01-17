@@ -11,7 +11,7 @@ The Messages class within the Kanvas Core JS SDK offers methods designed for int
 
 ## Create Message
 
-This method enables the creation of a new message. It receives a [MessageInputInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/messages.ts#L19) interface as input and returns a [MessageInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/messages.ts#L2) interface.
+This method enables the creation of a new message. It recievess a [MessageInputInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/messages.ts#L19) interface as input and returns a [MessageInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/messages.ts#L2) interface.
 
 ```js
 Kanvas.messages.createMessage(messageInput: MessageInputInterface): MessageInterface
