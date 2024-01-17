@@ -48,7 +48,7 @@ const updatedUserData = Kanvas.users.updateUserData(1, dataToUpdate);
 
 ## Invite User
 
-The method `invite` is used to invite new users into a company. It recieves a [InviteUserParams](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L133) interface. It returns a [InviteUserData](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L141) interface.
+The method `invite` is use to invite new users into a company. It recieves a [InviteUserParams](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L133) interface. It returns a [InviteUserData](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L141) interface.
 
 ```js
 Kanvas.users.invite(inviteInput: InviteUserParams): InviteUserData
