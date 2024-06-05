@@ -21,7 +21,7 @@ Kanvas.messages.createMessage(messageInput: MessageInputInterface): MessageInter
 
 ```js
 let message = {
-  message_types_id: 1, // 1 is a single message
+  message_verb: "memod", // 1 is a single message
   message: "This is a test message", // this can be a string or a json object encoded as a string
   system_modules_id: 1, // this is the system module id for the memos
   entity_id: 1, // this is the entity is from the serverless server
