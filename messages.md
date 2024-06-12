@@ -32,6 +32,23 @@ let message = {
 const newMessage = Kanvas.messages.createMessage(message);
 ```
 
+## Update Message
+This method enables the update a existing message. It recievess a id string input and a  [MessageUpdateInputInterface](https://github.com/bakaphp/kanvas-core-js/blob/6321d44a068674efa0f68c6161a1ed32d5dbcf62/src/types/messages.ts#L28) interface as input then it returns a [MessageInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/messages.ts#L2) interface.
+
+```js
+Kanvas.messages.updateMessage(id: string, messageInput: MessageUpdateInputInterface): MessageInterface
+```
+
+**Example:**
+
+```js
+let message = {
+  message: "You only can update the message verb", // 1 is a single message
+};
+const message = Kanvas.messages.updateMessage(id: 21, message);
+```
+
+
 ## Get Messages
 
 This method facilitates the retrieval of messages from the server. It accepts the following parameters
