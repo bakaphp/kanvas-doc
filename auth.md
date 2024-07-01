@@ -1,123 +1,146 @@
-## Authentication
+# Authentication Module
 
-This is a list of method available in the Kanvas Core JS SDK for the Authentication module.
+The Authentication module provides methods for handling user authentication and authorization in Kanvas applications.
+
+## Key Features
+
+- User login 
+- Token refresh
+- Password reset
+- Password change
+- Social login
+
+## Usage
+
+To use the Authentication module, access it via the `auth` property on your KanvasCore instance:
+
+```typescript
+const kanvas = new KanvasCore({...});
+const auth = kanvas.auth;
+```
 
 ## Methods
 
-- [Register](#register)
-- [Log In](#log-in)
-- [Log Out](#log-out)
-- [Forgot Password](#forgot-password)
-- [Reset Password](#reset-password)
-- [Change Password](#change-password)
+### login(email: string, password: string): Promise<AuthenticationInterface>
 
-## Register
+Authenticates a user with email and password.
 
-The method `register` allows you to create a new user within the Kanvas Ecosystem. It recieves a [UserInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L5) or [CreateUserParams](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L73) interface. It returns a [CreatedUser](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/users.ts#L82) interface.
-
-```js
-Kanvas.users.register(
-  userData: UserInterface | CreateUserParams
-): CreatedUser
+```typescript
+const authData = await auth.login('user@example.com', 'password123');
+console.log(authData.token); // Access token
+console.log(authData.refresh_token); // Refresh token
 ```
 
-**Example:**
-```js
-const createdUser = Kanvas.users.register({
-  email: 'john.doe@domain.com',
-  firstname: 'John',
-  lastname: 'Doe',
-  displayname: 'john.doe',
-  password: 'pass1234',
-  password_confirmation: 'pass1234',
+Returns an `AuthenticationInterface` object containing:
+- `id`: User ID
+- `token`: Access token  
+- `refresh_token`: Refresh token
+- `token_expires`: Access token expiration
+- `refresh_token_expires`: Refresh token expiration
+- `time`: Current time
+- `timezone`: User timezone
+
+### logout(): Promise<LogoutInterface>
+
+Logs out the current user.
+
+```typescript
+await auth.logout();
+```
+
+Returns a `LogoutInterface` with a boolean indicating success.
+
+### refreshToken(token: string): Promise<RefreshTokenInterface>
+
+Refreshes an expired access token.
+
+```typescript
+const refreshedToken = await auth.refreshToken(currentRefreshToken);
+console.log(refreshedToken.token); // New access token
+```
+
+Returns a `RefreshTokenInterface` containing the new access token.
+
+### resetPassword(hash_key: string, new_password: string, verify_password: string): Promise<ResetPasswordInterface>
+
+Resets a user's password.
+
+```typescript
+await auth.resetPassword('reset_hash', 'newPassword123', 'newPassword123');
+```
+
+Returns a `ResetPasswordInterface` with a boolean indicating success.
+
+### changePassword(current_password: string, new_password: string, new_password_confirmation: string): Promise<ChangePasswordInterface>
+
+Changes a user's password.
+
+```typescript
+await auth.changePassword('oldPass123', 'newPass456', 'newPass456');
+```
+
+Returns a `ChangePasswordInterface` with a boolean indicating success.
+
+### socialLogin(data: SocialLoginInputInterface): Promise<AuthenticationInterface>
+
+Authenticates a user via social login.
+
+```typescript
+const socialAuthData = await auth.socialLogin({
+  token: 'social_token_123',
+  provider: 'google'
 });
+console.log(socialAuthData.token); // Access token
 ```
 
-## Log In
+Returns an `AuthenticationInterface` object similar to regular login.
 
-The method `login` allows you to sign in a user into the Kanvas Ecosystem. It returns a [Authentication](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/auth.ts#L1) interface.
+## Best Practices
 
-```js
-Kanvas.auth.login(
-  email: string,
-  password: string
-): AuthenticationInterface
+1. Store tokens securely, preferably in HTTP-only cookies.
+2. Implement token refresh logic to maintain user sessions.
+3. Use HTTPS for all authentication requests.
+4. Validate user input before sending authentication requests.
+5. Implement proper error handling for failed authentication attempts.
+
+## Troubleshooting
+
+- **Invalid Credentials**: Ensure email and password are correct. Check for typos or case sensitivity issues.
+- **Token Expiration**: If operations fail due to invalid token, try refreshing the token first.
+- **Network Errors**: Check internet connectivity and Kanvas API endpoint accessibility.
+- **CORS Issues**: Ensure your application's domain is whitelisted in the Kanvas configuration.
+
+## Error Handling
+
+The Authentication module methods throw errors for various scenarios. Always wrap authentication calls in try/catch blocks:
+
+```typescript
+try {
+  await auth.login(email, password);
+} catch (error) {
+  console.error('Authentication failed:', error.message);
+  // Handle error (e.g., show user feedback, log error)
+}
 ```
 
-**Example:**
-```js
-const signIn = kanvas.auth.login(
-  'john.doe@domain.com',
-  'pass1234'
-);
-```
+Common error scenarios:
+- Invalid credentials
+- Account locked
+- Network failures
+- Rate limiting
 
-## Log Out
+## Security Considerations
 
-The method `logout` allows you to sign out a user out of the Kanvas Ecosystem. It returns a [Authentication](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/auth.ts#L11) interface.
+1. Never store plain text passwords.
+2. Implement multi-factor authentication for enhanced security.
+3. Use strong password policies.
+4. Monitor for unusual authentication patterns to detect potential security breaches.
+5. Regularly rotate refresh tokens.
 
-```js
-Kanvas.auth.logout(): void
-```
+## Integration Tips
 
-**Example:**
-```js
-Kanvas.auth.logout();
-```
+1. Combine with the Users module for comprehensive user management.
+2. Use the `genericAuthMiddleware` for automatic token handling in requests.
+3. Implement a global auth state management for consistent UI updates.
 
-## Forgot Password
-
-The method `forgotPassword` sends an email that allows the user to reset the password of their account within the Kanvas Ecosystem.
-
-```js
-Kanvas.user.forgotPassword(email: string): void
-```
-
-**Example:**
-```js
-Kanvas.user.forgotPassword(
-  'john.doe@domain.com'
-);
-```
-
-## Reset Password
-
-The method `resetPassword` allows you to reset the password of a user in the Kanvas Ecosystem. It recieves a hash, the user's new password and its verification. It returns a [ResetPasswordInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/auth.ts#L19) interface.
-
-```js
-Kanvas.auth.resetPassword(
-  hash_key: string,
-  new_password: string,
-  verify_password: string
-): ResetPasswordInterface
-```
-
-**Example:**
-```js
-const resetPassword = kanvas.auth.resetPassword(
-  '3b84ece51db2d36fb58608a48422601649093811',
-  '1234pass',
-  '1234pass'
-);
-```
-
-## Change Password
-
-The method `changePassword` allows you to change the password of a user in the Kanvas Ecosystem. It returns a [ChangePasswordInterface](https://github.com/bakaphp/kanvas-core-js/blob/main/src/types/auth.ts#L23) interface.
-
-```js
-Kanvas.auth.changePassword(
-  current_password: string,
-  new_password: string,
-  new_password_confirmation: string
-): ChangePasswordInterface
-```
-
-**Example:**
-```js
-const changePassword = kanvas.auth.changePassword(
-  'pass1234',
-  '1234pass',
-  '1234pass'
-);
-```
+By leveraging the Authentication module effectively, you can create secure and user-friendly authentication flows in your Kanvas-powered applications.
