@@ -67,7 +67,45 @@ function App() {
 }
 ```
 
+### Super Admin
+This is for when you want to access the Kanvas API as the super admin.
+
+```js
+import KanvasCore, { genericAuthMiddleware } from '@kanvas/core';
+
+function App() {
+  const Kanvas = new KanvasCore({
+    url: '{{GRAPHQL_URL}}', // Your Kanvas GraphQL API URL
+    key: '{{KEY}}', // Your Kanvas App Key
+    adminKey: '{{ADMIN_KEY}}', // Your Kanvas Admin Key
+    middlewares: [
+      genericAuthMiddleware(() => {
+        return Promise.resolve(
+          localStorage.getItem("token")
+        );
+      }),
+    ],
+  });
+}
+```
+
 This basic setup initializes the SDK and configures an authentication middleware to automatically attach a user token to API requests.
+
+## Token Authentication vs. Super Admin API
+
+When integrating with your application in Kanvas, it’s important to understand the difference between **Token Authentication** and **Super Admin API Access**:
+
+### **Token Authentication** (Client API)
+
+Client APIs and SDKs are designed for building user-facing applications, such as websites or mobile apps. With **Token Authentication**, users can only access the resources in **your app** that they have been granted permission to use, based on their roles and assigned permissions.
+
+This ensures that users interact with your app in a secure and controlled way, with access limits defined by the application’s permissions structure.
+
+### **Super Admin API** (Server API)
+
+The **Super Admin API** is intended for backend or server-side integrations with **your app in Kanvas**, providing **full access** to all resources. Unlike Token Authentication, the Super Admin API **ignores user-specific permissions** and instead operates based on the API key’s scope, giving full administrative control over the app.
+
+While the Super Admin API grants complete control over your app, it should **never be used on the frontend**. Its purpose is strictly for backend operations, and in the future, you’ll be able to scope API keys to allow more granular control over what parts of the app are accessible.
 
 
 ## Next Steps
