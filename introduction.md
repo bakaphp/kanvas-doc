@@ -1,8 +1,33 @@
-# Getting Started
+# Kanvas: Headless App APIs
 
-You need a KANVAS APP KEY to use Kanvas Core. To acquire one contact one of our developers at kanvas-support@mctekk.com. 
+Kanvas provides a comprehensive set of GraphQL APIs for common headless app requirements:
 
-You could also run your own ecosystem by cloning the repository for [Kanvas Ecosystem API](https://github.com/bakaphp/kanvas-ecosystem-api).
+- Authentication
+- Multi-tenancy management
+- Customer management (CRM)
+- Inventory management
+- Social interactions
+- Workflows
+
+By handling these core functionalities, Kanvas allows you to focus on your app's unique business logic.
+
+## Getting Started
+
+This guide will walk you through:
+
+1. Installing the Kanvas Core SDK
+2. Configuring the SDK in your project
+3. Basic usage examples
+
+Let's begin!
+
+## Requirements
+Node 12 or higher.
+
+## Installation
+You need a KANVAS APP KEY to use Kanvas Core. At this moment kanvas is in a close beta if you want to try it out, signup to our newsletter at [kanvas.dev](https://kanvas.dev)
+
+You could also run your own ecosystem by cloning the repository for [Kanvas Ecosystem API](https://github.com/bakaphp/kanvas-ecosystem-api) and following the installation instructions
 
 ## Installation
 To install the SDK simply run the following command in your project directory:
@@ -17,13 +42,16 @@ or
 ```
 
 ## Usage
+
+The package needs your app key and ecosystem url . You can get both from your app dashboard.
+
 ```js
 import  KanvasCore, { genericAuthMiddleware } from '@kanvas/core';
 
 function App() {
   const Kanvas = new KanvasCore({
-    url: 'https://graphapidev.kanvas.dev/graphql',
-    key: '7d0488b2-632e-4045-9d2d-370d9161644a',
+    url: '{{GRAPHQL_URL}}',
+    key: '{{KEY}}',
     middlewares: [
       genericAuthMiddleware(() => {
         return Promise.resolve(
@@ -36,4 +64,4 @@ function App() {
 ```
 
 ## Next Steps
-Now that you have the SDK installed and configured, you can begin to use it to interact with the Kanvas Niche Ecosystem. The next step is to [create a user](./auth.md#sign-up).
+Now that you have the SDK installed and configured, you can begin to use it to interact with the Kanvas Niche Ecosystem. The next step is to [user management](./auth.md#sign-up).
