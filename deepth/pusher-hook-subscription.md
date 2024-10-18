@@ -8,7 +8,7 @@
 
 Ensure you have the necessary dependencies installed:
 
-npm install pusher-js react
+npm install pusher-js
 
 ## Usage
 
